@@ -1,89 +1,138 @@
 package com.kh.semi.model.dao;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+import javax.servlet.http.HttpServletRequest;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 
-public class Test {
-
-	public static void main(String[] args) throws IOException, ParseException {
-		// TODO Auto-generated method stub
+public class Test
+{
+	public static void main(String[] args)
+	{
+		String[] v = new String[5];
+		// String s = get(61, 125, v); // 기준 kh정보교육원
+		String s = get(55, 124, v); 
 		
-		Date date = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-
-		//String apiUrl = "http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtNcst";	//초단기실황조회
-		//String apiUrl = "http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtFcst";	//초단기예보조회
-		String apiUrl = "	http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0";	//동네예보조회
 		
-		// 홈페이지에서 받은 키
-		String serviceKey = "USlQM9K8Y05JyehodFI9PA22GAGFmGjN6EgWA48%2FnnC0LCOiWCT%2FrpXccYUIE9Wu36rhyeJPErcIEyivU4c9ZA%3D%3D";
-		String nx = "60";	//위도
-		String ny = "127";	//경도
-		String baseDate = sdf.format(date);	//조회하고싶은 날짜
-		String baseTime = "0800";	//API 제공 시간
-		String dataType = "json";	//타입 xml, json
-		String numOfRows = "250";	//한 페이지 결과 수 
-
-		//동네예보 -- 전날 05시 부터 225개의 데이터를 조회하면 모레까지의 날씨를 알 수 있음
-		
-		StringBuilder urlBuilder = new StringBuilder(apiUrl);
-		urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "="+serviceKey);
-		urlBuilder.append("&" + URLEncoder.encode("nx","UTF-8") + "=" + URLEncoder.encode(nx, "UTF-8")); //경도
-		urlBuilder.append("&" + URLEncoder.encode("ny","UTF-8") + "=" + URLEncoder.encode(ny, "UTF-8")); //위도
-		urlBuilder.append("&" + URLEncoder.encode("base_date","UTF-8") + "=" + URLEncoder.encode(baseDate, "UTF-8")); /* 조회하고싶은 날짜*/
-		urlBuilder.append("&" + URLEncoder.encode("base_time","UTF-8") + "=" + URLEncoder.encode(baseTime, "UTF-8")); /* 조회하고싶은 시간 AM 02시부터 3시간 단위 */
-		urlBuilder.append("&" + URLEncoder.encode("dataType","UTF-8") + "=" + URLEncoder.encode(dataType, "UTF-8"));	/* 타입 */
-		urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode(numOfRows, "UTF-8"));	/* 한 페이지 결과 수 */
-		
-		// GET방식으로 전송해서 파라미터 받아오기
-		URL url = new URL(urlBuilder.toString());
-		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-		conn.setRequestMethod("GET");
-		conn.setRequestProperty("Content-type", "application/json");
-		
-		BufferedReader rd;
-		if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
-			rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-		} else {
-			rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
+		if (s == null)
+		{ // ok!
+			System.out.println("날짜 : " + v[0]);
+			System.out.println("예보시간 : " + v[1]);
+			System.out.println("날씨 : " + v[2]);
+			System.out.println("기온 : " + v[3] + "℃");
+			System.out.println("습도 : " + v[4] + "%");
 		}
-		StringBuilder sb = new StringBuilder();
-		String line;
-		while ((line = rd.readLine()) != null) {
-			sb.append(line);
+		else
+		{ // error
+			System.out.println("Error : " + s);
 		}
-		rd.close();
-		conn.disconnect();
-		String data= sb.toString();
-		
-		// Json parser를 만들어 만들어진 문자열 데이터를 객체화 
-		JSONParser parser = new JSONParser(); 
-		JSONObject obj = (JSONObject) parser.parse(data); 
-		// response 키를 가지고 데이터를 파싱 
-		JSONObject parse_response = (JSONObject) obj.get("response"); 
-		// response 로 부터 body 찾기
-		JSONObject parse_body = (JSONObject) parse_response.get("body"); 
-		// body 로 부터 items 찾기 
-		JSONObject parse_items = (JSONObject) parse_body.get("items");
-		JSONArray parse_item = (JSONArray) parse_items.get("item");
-		//JSONObject item = (JSONObject) parse_item.get("item");
+	}	
 
-		System.out.println(data);
-		for(int i=0;i<parse_item.size();i++) {
-			System.out.println(parse_item.get(i));
+	// [in] x, y : 예보지점 X, Y 좌표
+	//=> 행정구역별 x,y 값은 참고문서(https://www.data.go.kr/data/15084084/openapi.do) 내려받아 확인	
+	// [out] v[0]=예보날짜(yyyyMMdd), v[1]=예보시간(HHmm), v[2]=날씨, v[3]=기온(℃), v[4]=습도(%)
+	// 반환값 : 에러메시지, null == OK
+	public static String get(int x, int y, String[] v)
+	{
+		HttpURLConnection con = null;
+		String s = null; // 에러 메시지
+		
+		try
+		{
+			LocalDateTime t = LocalDateTime.now().minusMinutes(30); // 현재 시각 30분전
+			
+			URL url = new URL(
+				"http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst"
+				+ "?ServiceKey=USlQM9K8Y05JyehodFI9PA22GAGFmGjN6EgWA48%2FnnC0LCOiWCT%2FrpXccYUIE9Wu36rhyeJPErcIEyivU4c9ZA%3D%3D" // 서비스키
+			//	+ "&pageNo=1" // 페이지번호 Default: 1
+				+ "&numOfRows=60" // 한 페이지 결과 수 (10개 카테고리값 * 6시간)
+			//	+ "&dataType=XML" // 요청자료형식(XML/JSON) Default: XML
+				+ "&base_date=" + t.format(DateTimeFormatter.ofPattern("yyyyMMdd"))  // 발표 날짜
+				+ "&base_time=" + t.format(DateTimeFormatter.ofPattern("HHmm")) // 발표 시각
+				+ "&nx=" + x // 예보지점의 X 좌표값
+				+ "&ny=" + y // 예보지점의 Y 좌표값
+			);
+			
+			con = (HttpURLConnection)url.openConnection();
+			Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(con.getInputStream());
+
+			boolean ok = false; // <resultCode>00</resultCode> 획득 여부
+			
+			Element e;
+			NodeList ns = doc.getElementsByTagName("header");
+			if (ns.getLength() > 0)
+			{
+				e = (Element)ns.item(0);
+				if ("00".equals(e.getElementsByTagName("resultCode").item(0).getTextContent()))
+					ok = true; // 성공 여부
+				else // 에러 메시지
+					s = e.getElementsByTagName("resultMsg").item(0).getTextContent();
+			}
+				
+			if (ok)
+			{
+				String fd = null, ft = null; // 가장 빠른 예보 시각
+				String pty = null; // 강수형태
+				String sky = null; // 하늘상태
+				String cat; // category
+				String val; // fcstValue
+				
+				ns = doc.getElementsByTagName("item");
+				for (int i = 0; i < ns.getLength(); i++)
+				{
+					e = (Element)ns.item(i);
+					
+					if (ft == null)
+					{ // 가져올 예보 시간 결정
+						fd = e.getElementsByTagName("fcstDate").item(0).getTextContent(); // 예보 날짜
+						ft = e.getElementsByTagName("fcstTime").item(0).getTextContent(); // 예보 시각
+					}
+					else if (!fd.equals(e.getElementsByTagName("fcstDate").item(0).getTextContent()) ||
+							 !ft.equals(e.getElementsByTagName("fcstTime").item(0).getTextContent()))
+							continue; // 결정된 예보 시각과 같은 시각의 것만 취한다.
+					
+					cat = e.getElementsByTagName("category").item(0).getTextContent(); // 자료구분코드
+					val = e.getElementsByTagName("fcstValue").item(0).getTextContent(); // 예보 값
+					
+					if ("PTY".equals(cat)) pty = val; // 강수형태
+					else if ("SKY".equals(cat)) sky = val; // 하늘상태
+					else if ("T1H".equals(cat)) v[3] = val; // 기온
+					else if ("REH".equals(cat)) v[4] = val; // 습도
+				}
+				
+				v[0] = fd;
+				v[1] = ft;
+				
+				if ("0".equals(pty))
+				{ // 강수형태 없으면, 하늘상태로 판단
+					if ("1".equals(sky)) v[2] = "맑음";
+					else if ("3".equals(sky)) v[2] = "구름많음";
+					else if ("4".equals(sky)) v[2] = "흐림";
+				}
+				else if ("1".equals(pty)) v[2] = "비";
+				else if ("2".equals(pty)) v[2] = "비/눈";
+				else if ("3".equals(pty)) v[2] = "눈";
+				else if ("5".equals(pty)) v[2] = "빗방울";
+				else if ("6".equals(pty)) v[2] = "빗방울눈날림";
+				else if ("7".equals(pty)) v[2] = "눈날림";
+	        }
+		}
+		catch (Exception e)
+		{
+			s = e.getMessage();
 		}
 		
-        
+		if (con != null)
+			con.disconnect();
+
+		return s;
 	}
+
+
 }
