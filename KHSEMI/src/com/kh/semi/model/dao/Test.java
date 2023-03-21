@@ -17,7 +17,7 @@ public class Test
 	{
 		String[] v = new String[5];
 		// String s = get(61, 125, v); // 기준 kh정보교육원
-		String s = get(55, 124, v); 
+		String s = get(61, 125, v); 
 		
 		
 		if (s == null)
