@@ -63,6 +63,7 @@
     }
 
 
+
 	
 </style>
 </head>
@@ -94,7 +95,9 @@
                         <li>운영시간 : </li>
                         <li>1:1 문의하기는 PC버전에서만 가능합니다.</li>
                     </ul>
-                    <button>자주 묻는 질문</button>
+                    <div class="question_box">
+                    	<button>자주 묻는 질문</button>
+                    </div>
                 </div>
             </div>
             <hr>
