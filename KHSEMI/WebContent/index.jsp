@@ -42,6 +42,7 @@
     }
 
 
+
     .swiper.second {
       max-width: 1280px;
       height: 260px;
@@ -230,7 +231,7 @@
         <div class="box_men">
             <div>
               <a href="">
-                <img src="resources/남성추천.webp" id="box1">
+                <img src="WebContent/resources/남성추천.webp" id="box1">
                 <p>남성 추천</p>
               </a>
             </div>

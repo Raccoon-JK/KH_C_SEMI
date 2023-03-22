@@ -21,7 +21,7 @@
         left: 0;
         right: 0;
         z-index: 1000;
-        background-color: lightgreen;
+        background-color: white;
     }
 
     .header_box{
@@ -126,7 +126,7 @@
                         <li class="top_item"><a href="">고객센터</a></li>
                         <li class="top_item"><a href="">관심상품</a></li>    
                         <li class="top_item"><a href="">로그인</a></li>
-                        <li><a href=""><img id="notice" src="C:\KH_C_SEMI\resources\notice_icon.png"></a></li>
+                        <li><a href=""><img id="notice" src="resources\notice_icon.png"></a></li>
                     </ul>
                 </div>
             </div>
@@ -141,7 +141,7 @@
                             <li><a href="">STYLE</a></li>
                             <li><a href="">SHOP</a></li>
                             <li><a href="">MY</a></li>
-                            <li><a href=""><img id="search" src="C:\KH_C_SEMI\resources\search_icon.png"></a></li>
+                            <li><a href=""><img id="search" src="resources\search_icon.png"></a></li>
                         </ul>
                     </nav>
                 </div>
