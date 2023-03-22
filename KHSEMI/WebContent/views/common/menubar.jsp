@@ -22,6 +22,7 @@
         right: 0;
         z-index: 1000;
         background-color: white;
+	    border-bottom: solid 1px rgb(231, 231, 231);
     }
 
     .header_box{
@@ -108,11 +109,11 @@
     }
 
     #search{
-        width: 10px;
+        width: 16px;
     }
 
     #notice{
-        width: 10px;
+        width: 16px;
     }
 	
 </style>

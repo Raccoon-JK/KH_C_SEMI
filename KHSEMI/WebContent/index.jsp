@@ -23,7 +23,7 @@
       font-size: 14px;
       color: #000;
       margin: 0;
-      padding: 0;
+      padding-top: 130px;
     }
 
     .swiper {
@@ -41,8 +41,6 @@
       width: 100%;
     }
 
-
-
     .swiper.second {
       max-width: 1280px;
       height: 260px;
@@ -58,26 +56,6 @@
       height: 100%;
       border-radius: 10px 10px;
     }
-
-    /*더보기 테스트*/
-    .add_merchandise_area{
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-    }
-
-    #second_look{
-      display: none;
-    }
-
-    #third_look{
-      display: none;
-    }
-
-    #forth_look{
-      display: none;
-    }
-
 
 
     .container{
@@ -97,7 +75,7 @@
     #box1{
         width: 300px;
         height: 120px;
-        margin: 40px 40px 5px;
+        margin: 40px 10px 5px;
         border-radius: 10px 10px;
     }
 
@@ -117,7 +95,7 @@
 
 
     /*테스트용*/
-    .merchandise{
+    #box2{
         background-color: bisque;
         border-radius: 10px 10px;
     }
@@ -159,7 +137,7 @@
 
     /*스타일 관련 스와이퍼 속성*/
     .swiper-button-prev.style {
-        background-image: url("prev_button.svg") !important;
+        background-image: url("resources/prev_button.svg") !important;
         width: 80px;
         height: 100px;
         margin-left: -10px;
@@ -167,7 +145,7 @@
     }
 
     .swiper-button-next.style {
-        background-image: url("next_button.svg") !important;
+        background-image: url("resources/next_button.svg") !important;
         width: 80px;
         height: 100px;
         margin-right: -10px;
@@ -183,7 +161,7 @@
 </head>
 <body>
 
-    <%@ include file="views/common/menubar.jsp" %>
+  <%@ include file="views/common/menubar.jsp" %>
 
   <!-- Swiper -->
   <div class="swiper first">
@@ -231,7 +209,7 @@
         <div class="box_men">
             <div>
               <a href="">
-                <img src="WebContent/resources/남성추천.webp" id="box1">
+                <img src="resources/남성추천.webp" id="box1">
                 <p>남성 추천</p>
               </a>
             </div>

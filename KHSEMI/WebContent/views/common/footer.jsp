@@ -69,6 +69,7 @@
 <body>
     <div class="footer">
        <div class="footer_box">
+			<hr>
             <div class="service_area">
                 <div class="menu_box">
                     <strong>이용안내</strong>
