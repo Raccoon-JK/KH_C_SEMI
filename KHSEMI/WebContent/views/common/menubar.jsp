@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,7 +63,7 @@
     }
  
 
-    .ul_tab{
+    .tab_area{
         height: 44px;
         width: 100%;
         display: flex;
@@ -70,9 +71,11 @@
         flex-wrap: nowrap;
         overflow-x: auto;
         overflow-y: hidden;
+        justify-content: space-between;
+        padding-right: 40px;
     }
 
-    .ul_tab li{
+    .tab_area li{
         margin-right: 27px;
     }
 
@@ -130,6 +133,10 @@
                         <li><a href=""><img id="notice" src="resources\notice_icon.png"></a></li>
                     </ul>
                 </div>
+                <a class="nav-link nav-icons" href="javascript:void(0);" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-bell"></i><input type="hidden" value="${loginUser.memId }" id="memIdSpan">
+                    <span class="indicator" id="alarmIcon" style="display:none;"></span>
+                </a>
             </div>
             <div class="header_main">
                 <div class="main_inner">
@@ -142,41 +149,49 @@
                             <li><a href="">STYLE</a></li>
                             <li><a href="">SHOP</a></li>
                             <li><a href="">MY</a></li>
-                            <li><a href=""><img id="search" src="resources\search_icon.png"></a></li>
                         </ul>
                     </nav>
                 </div>
             </div>
-            <ul class="ul_tab">
-                <li>
-                    <a href="">
-                        <span>추천</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <span>남성</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <span>여성</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <span>브랜드</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <span>기획전</span>
-                    </a>
-                </li>
-            </ul>
-    
+            <div class="tab_area">
+                <ul>
+                    <li>
+                        <a href="">
+                            <span>추천</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>남성</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>여성</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>브랜드</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>기획전</span>
+                        </a>
+                    </li>
+                </ul>
+                <form  name="frm_search" role="search" method="get" class="search-form" >
+                   <input type="search" class="search-field" placeholder="상품명" value="${param.findStr }" name="findStr" />
+                   <button class="submit" type="submit" name="btnFind" class="search-submit"><img id="search" src="resources\search_icon.png"></button>
+                   <input type="hidden" name="nowPage" value="${(empty param.nowPage)? 1: param.nowPage}" size="10">
+                   <input type="hidden" name="serial" size="10" >
+                   <input type="hidden" name="search" value="select">
+                </form>
+            </div>
         </div>
     </div>
+
 
 </body>
 </html>

@@ -327,11 +327,6 @@
 
 
 
-<hr>
-
-
-
-
   <!-- Swiper -->
   <div class="container">
     <div class="swiper second">
@@ -352,8 +347,6 @@
     </div>
   </div>
 
-   <br><br><br><br><br><br><br><br><br><br><br>
-
   <!-- Initialize Swiper -->
   <script>
     var swiper = new Swiper(".second", {
@@ -366,15 +359,7 @@
       }
     });
   </script>
-
-
-
-
-
-
-
-
-
+  
 <%@ include file="views/common/footer.jsp" %>
 
     
