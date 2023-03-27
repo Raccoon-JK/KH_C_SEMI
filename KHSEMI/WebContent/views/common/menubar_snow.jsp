@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>구해줘패션_메뉴바</title>
+<title>구해줘패션_메뉴바_눈올때</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <!-- jQuery library -->
@@ -15,6 +15,24 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <style>
+    i {
+        position: absolute;
+        height: 3px;
+        background: linear-gradient(transparent, #fff);
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        animation: snowing 5s linear Infinite;
+        z-index: 1001;
+    }
+
+    @keyframes snowing {
+        0% {
+            transform: translateY(0px);
+        }
+        100% {
+            transform: translateY(calc(130px));
+        }
+    }
 
     .header{
         position:fixed;
@@ -22,7 +40,7 @@
         left: 0;
         right: 0;
         z-index: 1000;
-        background-color: white;
+        background: linear-gradient(75deg, #deafaa, #f86363);
 	    border-bottom: solid 1px rgb(231, 231, 231);
     }
 
@@ -191,6 +209,8 @@
             </div>
         </div>
     </div>
+
+    <script src="snowing.js"></script>
 
 
 </body>
