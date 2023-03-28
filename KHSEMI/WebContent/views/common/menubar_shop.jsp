@@ -14,25 +14,31 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<link href="menu.css" rel="stylesheet" type="text/css">  
+<link href="${pageContext.request.contextPath}/views/common/menu.css" rel="stylesheet" type="text/css"> 
 <style>
+
     .header{
-    position:fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background-color: white;
-    border-bottom: solid 1px rgb(231, 231, 231);
-    }
-    
-    .header_box{
-    height: 130px;
-    max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
+        position:fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background-color: white;
+	    border-bottom: solid 1px rgb(231, 231, 231);
     }
 
+    .header_box{
+        height: 238px;
+        max-width: 1280px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .search_title{
+        margin: 30px 0px;
+        text-align: center;
+    }
+	
 </style>
 </head>
 <body>
@@ -67,31 +73,59 @@
                     </nav>
                 </div>
             </div>
+            <div class="search_title">
+                <h1>SHOP</h1>
+            </div>
             <div class="tab_area">
                 <ul>
                     <li>
                         <a href="">
-                            <span>추천</span>
+                            <span>전체</span>
                         </a>
                     </li>
                     <li>
                         <a href="">
-                            <span>남성</span>
+                            <span>럭셔리</span>
                         </a>
                     </li>
                     <li>
                         <a href="">
-                            <span>여성</span>
+                            <span>신발</span>
                         </a>
                     </li>
                     <li>
                         <a href="">
-                            <span>브랜드</span>
+                            <span>아우터</span>
                         </a>
                     </li>
                     <li>
                         <a href="">
-                            <span>기획전</span>
+                            <span>상의</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>하의</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>가방</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>지갑</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>시계</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>패션잡화</span>
                         </a>
                     </li>
                 </ul>

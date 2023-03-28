@@ -14,9 +14,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link href="${pageContext.request.contextPath}/views/common/menu.css" rel="stylesheet" type="text/css">
 <style>
-@keyframes sunrise {
-    from {
+    @keyframes sunrise {
+        from {
             transform: rotate(60deg);
         }
 
@@ -24,10 +25,66 @@
             transform: rotate(300deg);
         }
     }
+    
+    @keyframes dawn {
+		0% {
+			opacity: 0;
+		}
+		10% {
+			opacity: 1;
+		}
+		60% {
+			opacity: 0;
+		}
+	}
+
+	@keyframes noon {
+		0% {
+			opacity: 0;
+		}
+		50% {
+			opacity: 1;
+		}
+		75% {
+			opacity: 0;
+		}
+	}
+	
+	@keyframes dusk {
+		0% {
+			opacity: 0;
+		}
+		50% {
+			opacity: 0;
+		}
+		70% {
+			opacity: 1;
+		}
+		90% {
+			opacity: 0;
+		}
+	}
+	
+	@keyframes midnight {
+		0% {
+			opacity: 1;
+		}
+		25% {
+			opacity: 0;
+		}
+		50% {
+			opacity: 0;
+		}
+		80% {
+			opacity: 1;
+		}
+	}
 
     body {
         --animation-speed: 30s;
     }
+    
+    
 
     .sky {
         width: 100vw;
@@ -43,6 +100,42 @@
         );
         z-index: 1001;
     }
+    
+    .sky__phase {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		transition: opacity 0.2s;
+	}
+
+	.sky__dawn {
+		background: linear-gradient(
+			0deg,
+			rgba(254, 215, 102, 1) 0%,
+			rgba(205, 237, 246, 1) 100%
+		);
+		animation: linear dawn infinite var(--animation-speed);
+	}
+	
+	.sky__noon {
+		background: linear-gradient(
+			0deg,
+			rgba(205, 237, 246, 1) 0%,
+			rgba(36, 123, 160, 1) 100%
+		);
+		animation: linear noon infinite var(--animation-speed);
+	}
+	
+	.sky__dusk {
+		background: linear-gradient(
+			0deg,
+			rgba(255, 32, 110, 1) 0%,
+			rgba(10, 0, 94, 1) 100%
+		);
+		animation: linear dusk infinite var(--animation-speed);
+	}
 
     .orbit {
         position: relative;
@@ -85,102 +178,19 @@
     }
 
     .header_box{
-        height: 130px;
-        max-width: 1280px;
-        margin-left: auto;
-        margin-right: auto;
+    height: 130px;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
     }
-
-    .header_top{
-        width: 100%;
-        height: 21px;
-    }
-
-    .top_list{
-        align-items: center;
-        margin-left: auto;
-    }
-
-    .top_list li{
-        margin-left: 24px;
-    }
-    
-    .top_inner{
-        display: flex;
-        flex-wrap: wrap;
-        text-align: right;
-        padding: 8px 40px 0;
-        height: 22px;
-    }
-
-    .header_main{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 0px 40px 0px 0px;
-    }
- 
-
-    .tab_area{
-        height: 44px;
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        overflow-y: hidden;
-        justify-content: space-between;
-        padding-right: 40px;
-    }
-
-    .tab_area li{
-        margin-right: 27px;
-    }
-
-    ul li{
-        list-style: none;
-        float: left;
-    }
-
-    .main_inner{
-        padding: 20px 40px;
-        height: 64px;
-        min-width: 320px;
-    }
-
-    .gnb_area{
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-    }
-
-    .gnb_list a{
-        font-size: 18px;
-        font-weight: bold;
-    }
-
-    .gnb_list li{
-        margin-left: 40px;
-
-    }
-
-    .header a{
-        text-decoration-line: none;
-        color: inherit;
-    }
-
-    #search{
-        width: 16px;
-    }
-
-    #notice{
-        width: 16px;
-    }
-	
 </style>
 </head>
 <body>
     <div class="sky">
+	    <div class="sky__phase sky__dawn"></div>
+		<div class="sky__phase sky__noon"></div>
+		<div class="sky__phase sky__dusk"></div>
+		<div class="sky__phase sky__midnight"></div>
         <div class="orbit">
             <div class="sun1"></div>
             <div class="sun2"></div>
@@ -231,11 +241,6 @@
                         <li>
                             <a href="">
                                 <span>여성</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <span>브랜드</span>
                             </a>
                         </li>
                         <li>
