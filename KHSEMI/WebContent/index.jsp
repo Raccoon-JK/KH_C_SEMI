@@ -157,7 +157,7 @@
 </head>
 <body>
 
-  <%@ include file="${pageContext.request.contextPath}/views/common/menubar_rain.jsp"%>
+  <%@ include file="views/common/menubar_snow.jsp" %>
 
   <!-- Swiper -->
   <div class="swiper first">
@@ -356,7 +356,7 @@
     });
   </script>
   
-<%@ include file="${pageContext.request.contextPath}/views/common/footer.jsp" %>
+<%@ include file="views/common/footer.jsp" %>
 
     
 </body>
