@@ -14,8 +14,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<link href="${pageContext.request.contextPath}/resources/css/menu.css" rel="stylesheet" type="text/css">
-<link href="${pageContext.request.contextPath}/resources/css/rain.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/views/common/rain.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/views/common/menu.css" rel="stylesheet" type="text/css">
 <style>
     .header{
         position:fixed;
@@ -28,10 +28,10 @@
     }
 
     .header_box{
-    height: 130px;
-    max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
+	    height: 130px;
+	    max-width: 1280px;
+	    margin-left: auto;
+	    margin-right: auto;
     }
 </style>
 </head>
@@ -101,7 +101,7 @@
         </div>
     </div>
 
-    <script src="${pageContext.request.contextPath}/views/common/raining.js"></script>
+    <script src="/views/common/raining.js"></script>
 
 </body>
 </html>
