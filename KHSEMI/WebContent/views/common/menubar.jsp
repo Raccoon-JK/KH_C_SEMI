@@ -14,6 +14,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/views/common/css/menu.css" type="text/css">
+
 <style>
 
     .header{
@@ -32,105 +34,6 @@
         margin-left: auto;
         margin-right: auto;
     }
-
-    .header_top{
-        width: 100%;
-        height: 21px;
-    }
-
-    .top_list{
-        align-items: center;
-        margin-left: auto;
-    }
-
-    .top_list li{
-        margin-left: 24px;
-    }
-    
-    .top_inner{
-        display: flex;
-        flex-wrap: wrap;
-        text-align: right;
-        padding: 8px 40px 0;
-        height: 22px;
-    }
-
-    .header_main{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 0px 40px 0px 0px;
-    }
- 
-
-    .tab_area{
-        height: 44px;
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        overflow-y: hidden;
-        justify-content: space-between;
-        padding-right: 40px;
-    }
-
-    .tab_area li{
-        margin-right: 27px;
-    }
-
-	.tab_area span{
-		font-weight: bolder;
-	}
-	
-    ul li{
-        list-style: none;
-        float: left;
-    }
-
-    .main_inner{
-        padding: 20px 40px;
-        height: 64px;
-        min-width: 320px;
-    }
-
-    .gnb_area{
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        margin-top: 40px;
-    }
-
-    .gnb_list a{
-        font-size: 18px;
-        font-weight: bold;
-    }
-
-    .gnb_list li{
-        margin-left: 40px;
-
-    }
-
-    .header a{
-        text-decoration-line: none;
-        color: inherit;
-    }
-    
-    button{
-    	border-style: none;
-    	background-color: rgba( 255, 255, 255, 0 );
-    }
-
-    #search{
-        width: 16px;
-        margin-bottom: 3px
-    }
-
-    #notice{
-        width: 16px;
-        margin-bottom: 5px
-    }
-	
 </style>
 </head>
 <body>
@@ -142,7 +45,7 @@
                         <li class="top_item"><a href="">고객센터</a></li>
                         <li class="top_item"><a href="">관심상품</a></li>    
                         <li class="top_item"><a href="">로그인</a></li>
-                        <li><a href=""><img id="notice" src="resources\bell_icon.png"></a></li>
+                        <li><a href=""><img id="notice" src="resources/bell_icon.png"></a></li>
                     </ul>
                 </div>
                 <a class="nav-link nav-icons" href="javascript:void(0);" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -3,7 +3,7 @@
  */
 
 function snow() {
-            let amount = 100;
+            let amount = 400;
             let body = document.querySelector("body");
             let count = 0;
             while (count < amount) {
