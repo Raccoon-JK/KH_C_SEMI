@@ -100,6 +100,7 @@
         border-radius: 10px 10px;
     }
 
+
     .info_box{
       padding: 16px 0px 25px;
     }
@@ -157,7 +158,7 @@
 </head>
 <body>
 
-  <%@ include file="${pageContext.request.contextPath}/views/common/menubar_rain.jsp"%>
+  <%@ include file="views/common/menubar_rain.jsp" %>
 
   <!-- Swiper -->
   <div class="swiper first">
@@ -202,30 +203,6 @@
 
   <div class="container">
     <div class="content">
-        <div>
-            <div>
-              <a href="">
-                <img src="resources/남성추천.webp" id="box1">
-                <p>남성 추천</p>
-              </a>
-            </div>
-        </div>
-        <div>
-            <div>
-              <a href="">
-                <img src="resources/여성추천.webp" id="box1">
-                <p>여성 추천</p>
-              </a>
-            </div>
-        </div>
-        <div>
-            <div>
-              <a href="">
-                <img src="resources/인기브랜드.webp" id="box1">
-                <p>인기 브랜드</p>
-              </a>
-            </div>
-        </div>
         <div>
             <div>
               <a href="">
@@ -356,7 +333,7 @@
     });
   </script>
   
-<%@ include file="${pageContext.request.contextPath}/views/common/footer.jsp" %>
+<%@ include file="views/common/footer.jsp" %>
 
     
 </body>

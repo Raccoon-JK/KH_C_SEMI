@@ -77,7 +77,11 @@
     body {
         --animation-speed: 60s;
     }
- 
+    
+    
+
+   
+    
     .sky__phase {
 		position: absolute;
 		top: 0;
