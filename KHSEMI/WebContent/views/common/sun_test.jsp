@@ -162,8 +162,8 @@
 
     .sun4 {
         position: absolute;
-        bottom: 10px;
-        right: 13px;
+        bottom: 20px;
+        right: 10px;
         width: 40px;
         height: 40px;
         background-color: rgb(254, 215, 102);
