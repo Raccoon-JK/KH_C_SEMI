@@ -100,6 +100,10 @@
         border-radius: 10px 10px;
     }
 
+    .merchandise_container{
+
+    }
+
     .info_box{
       padding: 16px 0px 25px;
     }
@@ -157,7 +161,7 @@
 </head>
 <body>
 
-  <%@ include file="views/common/menubar_sun.jsp" %>
+  <%@ include file="views/common/menubar_rain.jsp" %>
 
   <!-- Swiper -->
   <div class="swiper first">
@@ -202,7 +206,7 @@
 
   <div class="container">
     <div class="content">
-        <div>
+        <div class="box_men">
             <div>
               <a href="">
                 <img src="resources/남성추천.webp" id="box1">
@@ -210,7 +214,7 @@
               </a>
             </div>
         </div>
-        <div>
+        <div class="box_women">
             <div>
               <a href="">
                 <img src="resources/여성추천.webp" id="box1">
@@ -218,7 +222,7 @@
               </a>
             </div>
         </div>
-        <div>
+        <div class="box_brand">
             <div>
               <a href="">
                 <img src="resources/인기브랜드.webp" id="box1">
@@ -226,7 +230,7 @@
               </a>
             </div>
         </div>
-        <div>
+        <div class="box_men">
             <div>
               <a href="">
                 <img src="resources/정가아래.webp" id="box1">
@@ -234,7 +238,7 @@
               </a>
             </div>
         </div>
-        <div>
+        <div class="box_women">
             <div>
               <a href="">
                 <img src="resources/셀럽픽.webp" id="box1">
@@ -242,7 +246,7 @@
               </a>
             </div>
         </div>
-        <div>
+        <div class="box_brand">
             <div>
               <a href="">
                 <img src="resources/인기럭셔리.webp" id="box1">
