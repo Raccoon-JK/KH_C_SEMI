@@ -100,6 +100,10 @@
         border-radius: 10px 10px;
     }
 
+    .merchandise_container{
+
+    }
+
     .info_box{
       padding: 16px 0px 25px;
     }
@@ -156,8 +160,7 @@
   </style>
 </head>
 <body>
-
-  <%@ include file="${pageContext.request.contextPath}/views/common/menubar_rain.jsp"%>
+  <%@ include file="./views/common/menubar_rain.jsp" %>
 
   <!-- Swiper -->
   <div class="swiper first">
@@ -202,7 +205,7 @@
 
   <div class="container">
     <div class="content">
-        <div>
+        <div class="box_men">
             <div>
               <a href="">
                 <img src="resources/남성추천.webp" id="box1">
@@ -210,7 +213,7 @@
               </a>
             </div>
         </div>
-        <div>
+        <div class="box_women">
             <div>
               <a href="">
                 <img src="resources/여성추천.webp" id="box1">
@@ -218,7 +221,7 @@
               </a>
             </div>
         </div>
-        <div>
+        <div class="box_brand">
             <div>
               <a href="">
                 <img src="resources/인기브랜드.webp" id="box1">
@@ -226,7 +229,7 @@
               </a>
             </div>
         </div>
-        <div>
+        <div class="box_men">
             <div>
               <a href="">
                 <img src="resources/정가아래.webp" id="box1">
@@ -234,7 +237,7 @@
               </a>
             </div>
         </div>
-        <div>
+        <div class="box_women">
             <div>
               <a href="">
                 <img src="resources/셀럽픽.webp" id="box1">
@@ -242,7 +245,7 @@
               </a>
             </div>
         </div>
-        <div>
+        <div class="box_brand">
             <div>
               <a href="">
                 <img src="resources/인기럭셔리.webp" id="box1">
@@ -294,34 +297,27 @@
       });
     </script>
 
-
-
-<script>
-  $('#more').click(function(){
-    $.get('https://SardineSP.github.io/test_more_info.json')
-      .done((data)=>{
-        
-        data.forEach((a, i)=>{
-          var template = 
-          `<div class="col-sm-4">
-          <img src="https://via.placeholder.com/600" id="box2">
-          <div class="info_box">
-            <h6 class="brand">${data[i].brand}</h6>
-            <h5 class="name">${data[i].title}</h5>
-            <p>가격 : ${data[i].price}</p>
-          </div>
-        </div>`;
-        $(".row").append(template);
-        })
-        
-      });
-  });
-</script>
-
-
-
-
-
+	<script>
+	  $('#more').click(function(){
+	    $.get('https://SardineSP.github.io/test_more_info.json')
+	      .done((data)=>{
+	        
+	        data.forEach((a, i)=>{
+	          var template = 
+	          `<div class="col-sm-4">
+	          <img src="https://via.placeholder.com/600" id="box2">
+	          <div class="info_box">
+	            <h6 class="brand">${data[i].brand}</h6>
+	            <h5 class="name">${data[i].title}</h5>
+	            <p>가격 : ${data[i].price}</p>
+	          </div>
+	        </div>`;
+	        $(".row").append(template);
+	        })
+	        
+	      });
+	  });
+	</script>
 
   <!-- Swiper -->
   <div class="container">

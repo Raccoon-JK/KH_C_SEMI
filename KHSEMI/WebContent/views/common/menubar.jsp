@@ -15,9 +15,10 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<link href="${pageContext.request.contextPath}/common/css/menu.css" rel="stylesheet" type="text/css">
+<link href="./css/menu.css" rel="stylesheet" type="text/css">
 
 <style>
+
     .header{
 	    position:fixed;
 	    top: 0;
@@ -33,6 +34,13 @@
 	    max-width: 1280px;
 	    margin-left: auto;
 	    margin-right: auto;
+        position:fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background-color: white;
+	    border-bottom: solid 1px rgb(231, 231, 231);
     }
     
 	button{
@@ -63,6 +71,99 @@
 	    margin-top: 30px;	
 	}
 
+    .header_box{
+        height: 130px;
+        max-width: 1280px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .header_top{
+        width: 100%;
+        height: 21px;
+    }
+
+    .top_list{
+        align-items: center;
+        margin-left: auto;
+    }
+
+    .top_list li{
+        margin-left: 24px;
+    }
+    
+    .top_inner{
+        display: flex;
+        flex-wrap: wrap;
+        text-align: right;
+        padding: 8px 40px 0;
+        height: 22px;
+    }
+
+    .header_main{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0px 40px 0px 0px;
+    }
+ 
+
+    .tab_area{
+        height: 44px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        justify-content: space-between;
+        padding-right: 40px;
+    }
+
+    .tab_area li{
+        margin-right: 27px;
+    }
+
+    ul li{
+        list-style: none;
+        float: left;
+    }
+
+    .main_inner{
+        padding: 20px 40px;
+        height: 64px;
+        min-width: 320px;
+    }
+
+    .gnb_area{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .gnb_list a{
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .gnb_list li{
+        margin-left: 40px;
+
+    }
+
+    .header a{
+        text-decoration-line: none;
+        color: inherit;
+    }
+
+    #search{
+        width: 16px;
+    }
+
+    #notice{
+        width: 16px;
+    }
+	
 </style>
 </head>
 <body>
@@ -74,7 +175,7 @@
                         <li class="top_item"><a href="">고객센터</a></li>
                         <li class="top_item"><a href="">관심상품</a></li>    
                         <li class="top_item"><a href="">로그인</a></li>
-                        <li><a href=""><img id="notice" src="${pageContext.request.contextPath}/resources/bell_icon.png"></a></li>
+                        <li><a href=""><img id="notice" src="../resources/bell_icon.png"></a></li>
                     </ul>
                 </div>
                 <a class="nav-link nav-icons" href="javascript:void(0);" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -91,7 +192,7 @@
                         <ul class="gnb_list">
                             <li><a href="">DRESS ROOM</a></li>
                             <li><a href="">MY</a></li>
-                            <li><button class="btnFind" type="submit" name="btnFind"><img id="search" src="${pageContext.request.contextPath}/resources/search_icon.png"></button></li>
+                            <li><button class="btnFind" type="submit" name="btnFind"><img id="search" src="../resources/search_icon.png"></button></li>
                         </ul>
                     </nav>
                 </div>
