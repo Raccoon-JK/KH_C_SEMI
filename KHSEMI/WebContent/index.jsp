@@ -161,7 +161,7 @@
 </head>
 <body>
 
-  <jsp:include page="/views/common/menubar.jsp"/>
+  <jsp:include page="/views/common/menubar_sun.jsp"/>
 
   <!-- Swiper -->
   <div class="swiper first">

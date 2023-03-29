@@ -137,6 +137,10 @@
         margin-right: 27px;
     }
 
+	.tab_area span{
+		font-weight: bolder;
+	}
+	
     ul li{
         list-style: none;
         float: left;
@@ -152,6 +156,7 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+        margin-top: 40px;
     }
 
     .gnb_list a{
@@ -168,15 +173,21 @@
         text-decoration-line: none;
         color: inherit;
     }
+    
+    button{
+    	border-style: none;
+    	background-color: rgba( 255, 255, 255, 0 );
+    }
 
     #search{
         width: 16px;
+        margin-bottom: 3px
     }
 
     #notice{
         width: 16px;
+        margin-bottom: 5px
     }
-	
 </style>
 </head>
 <body>
@@ -186,74 +197,45 @@
             <div class="sun2"></div>
         </div>
         <div class="header">
-            <div class="header_box">
-                <div class="header_top">
-                    <div class="top_inner">
-                        <ul class="top_list">
-                            <li class="top_item"><a href="">고객센터</a></li>
-                            <li class="top_item"><a href="">관심상품</a></li>    
-                            <li class="top_item"><a href="">로그인</a></li>
-                            <li><a href=""><img id="notice" src="resources\bell_icon.png"></a></li>
-                        </ul>
-                    </div>
-                    <a class="nav-link nav-icons" href="javascript:void(0);" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-fw fa-bell"></i><input type="hidden" value="${loginUser.memId }" id="memIdSpan">
-                        <span class="indicator" id="alarmIcon" style="display:none;"></span>
-                    </a>
-                </div>
-                <div class="header_main">
-                    <div class="main_inner">
-                        구해줘패션(로고 삽입 예정)
-                    </div>
-                    <div class="gnb_area">
-                        <nav class="gnb">
-                            <ul class="gnb_list">
-                                <li><a href="">HOME</a></li>
-                                <li><a href="">STYLE</a></li>
-                                <li><a href="">SHOP</a></li>
-                                <li><a href="">MY</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                <div class="tab_area">
-                    <ul>
-                        <li>
-                            <a href="">
-                                <span>추천</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <span>남성</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <span>여성</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <span>브랜드</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <span>기획전</span>
-                            </a>
-                        </li>
+        <div class="header_box">
+            <div class="header_top">
+                <div class="top_inner">
+                    <ul class="top_list">
+                        <li class="top_item"><a href="">고객센터</a></li>
+                        <li class="top_item"><a href="">관심상품</a></li>    
+                        <li class="top_item"><a href="">로그인</a></li>
+                        <li><a href=""><img id="notice" src="resources\bell_icon.png"></a></li>
                     </ul>
-                    <form  name="frm_search" role="search" method="get" class="search-form" >
-                       <input type="search" class="search-field" placeholder="상품명" value="${param.findStr }" name="findStr" />
-                       <button class="submit" type="submit" name="btnFind" class="search-submit"><img id="search" src="resources\search_icon.png"></button>
-                       <input type="hidden" name="nowPage" value="${(empty param.nowPage)? 1: param.nowPage}" size="10">
-                       <input type="hidden" name="serial" size="10" >
-                       <input type="hidden" name="search" value="select">
-                    </form>
+                </div>
+                <a class="nav-link nav-icons" href="javascript:void(0);" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-bell"></i><input type="hidden" value="${loginUser.memId }" id="memIdSpan">
+                    <span class="indicator" id="alarmIcon" style="display:none;"></span>
+                </a>
+            </div>
+            <div class="header_main">
+                <div class="main_inner">
+                    구해줘패션(로고 삽입 예정)
+                </div>
+                <div class="gnb_area">
+                    <nav class="gnb">
+                        <ul class="gnb_list">
+                            <li><a href="">DRESS ROOM</a></li>
+                            <li><a href="">MY</a></li>
+                            <li><button class="btnFind" type="submit" name="btnFind"><img id="search" src="${pageContext.request.contextPath}/resources/search_icon.png"></button></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
+            <div class="tab_area">
+                <ul>
+                	<li><a href=""><span>HOME</span></a></li>
+                    <li><a href=""><span>STYLE</span></a></li>
+                    <li><a href=""><span>SHOP</span></a></li>
+                    <li><a href=""><span>기획전</span></a></li>
+                </ul>
+            </div>
         </div>
+    </div>
     </div>
 
 
