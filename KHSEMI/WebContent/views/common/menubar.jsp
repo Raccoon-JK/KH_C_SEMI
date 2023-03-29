@@ -79,6 +79,10 @@
         margin-right: 27px;
     }
 
+	.tab_area span{
+		font-weight: bolder;
+	}
+	
     ul li{
         list-style: none;
         float: left;
@@ -94,6 +98,7 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+        margin-top: 40px;
     }
 
     .gnb_list a{
@@ -110,13 +115,20 @@
         text-decoration-line: none;
         color: inherit;
     }
+    
+    button{
+    	border-style: none;
+    	background-color: rgba( 255, 255, 255, 0.5 );
+    }
 
     #search{
         width: 16px;
+        margin-bottom: 3px
     }
 
     #notice{
         width: 16px;
+        margin-bottom: 5px
     }
 	
 </style>
@@ -145,53 +157,22 @@
                 <div class="gnb_area">
                     <nav class="gnb">
                         <ul class="gnb_list">
-                            <li><a href="">HOME</a></li>
-                            <li><a href="">STYLE</a></li>
-                            <li><a href="">SHOP</a></li>
+                            <li><a href="">DRESS ROOM</a></li>
                             <li><a href="">MY</a></li>
+                            <li><button class="btnFind" type="submit" name="btnFind"><img id="search" src="${pageContext.request.contextPath}/resources/search_icon.png"></button></li>
                         </ul>
                     </nav>
                 </div>
             </div>
             <div class="tab_area">
                 <ul>
-                    <li>
-                        <a href="">
-                            <span>추천</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span>남성</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span>여성</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span>브랜드</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span>기획전</span>
-                        </a>
-                    </li>
+                	<li><a href=""><span>HOME</span></a></li>
+                    <li><a href=""><span>STYLE</span></a></li>
+                    <li><a href=""><span>SHOP</span></a></li>
+                    <li><a href=""><span>기획전</span></a></li>
                 </ul>
-                <form  name="frm_search" role="search" method="get" class="search-form" >
-                   <input type="search" class="search-field" placeholder="상품명" value="${param.findStr }" name="findStr" />
-                   <button class="submit" type="submit" name="btnFind" class="search-submit"><img id="search" src="resources\search_icon.png"></button>
-                   <input type="hidden" name="nowPage" value="${(empty param.nowPage)? 1: param.nowPage}" size="10">
-                   <input type="hidden" name="serial" size="10" >
-                   <input type="hidden" name="search" value="select">
-                </form>
             </div>
         </div>
     </div>
-
-
 </body>
 </html>

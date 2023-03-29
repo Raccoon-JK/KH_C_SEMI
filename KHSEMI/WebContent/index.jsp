@@ -161,7 +161,7 @@
 </head>
 <body>
 
-  <%@ include file="views/common/menubar_rain.jsp" %>
+  <jsp:include page="/views/common/menubar.jsp"/>
 
   <!-- Swiper -->
   <div class="swiper first">
@@ -359,8 +359,7 @@
       }
     });
   </script>
-  
-<%@ include file="views/common/footer.jsp" %>
+  <jsp:include page="/views/common/footer.jsp"/>
 
     
 </body>

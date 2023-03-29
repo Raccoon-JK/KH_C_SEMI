@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>구해줘패션_메뉴바_비올때</title>
+<title>구해줘패션_메뉴바</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <!-- jQuery library -->
@@ -14,9 +14,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<link href="/views/common/menu.css" rel="stylesheet" type="text/css">
-
-
+<link href="${pageContext.request.contextPath}/views/common/menu.css" rel="stylesheet" type="text/css"> 
 <style>
     .header{
         position:fixed;
@@ -24,15 +22,20 @@
         left: 0;
         right: 0;
         z-index: 1000;
-        background: linear-gradient(75deg, #ecebed, #9198e5);
+        background-color: white;
 	    border-bottom: solid 1px rgb(231, 231, 231);
     }
 
     .header_box{
-        height: 130px;
+        height: 238px;
         max-width: 1280px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .search_title{
+        margin: 30px 0px;
+        text-align: center;
     }
 
     .header_top{
@@ -147,25 +150,75 @@
                 <div class="gnb_area">
                     <nav class="gnb">
                         <ul class="gnb_list">
-                            <li><a href="">DRESS ROOM</a></li>
+                            <li><a href="">HOME</a></li>
+                            <li><a href="">STYLE</a></li>
+                            <li><a href="">SHOP</a></li>
                             <li><a href="">MY</a></li>
-                            <li><button class="btnFind" type="submit" name="btnFind"><img id="search" src="${pageContext.request.contextPath}/resources/search_icon.png"></button></li>
+                        	<li><button class="btnFind" type="submit" name="btnFind"><img id="search" src="${pageContext.request.contextPath}/resources/search_icon.png"></button></li>
                         </ul>
                     </nav>
                 </div>
             </div>
+            <div class="search_title">
+                <h1>SHOP</h1>
+            </div>
             <div class="tab_area">
                 <ul>
-                	<li><a href=""><span>HOME</span></a></li>
-                    <li><a href=""><span>STYLE</span></a></li>
-                    <li><a href=""><span>SHOP</span></a></li>
-                    <li><a href=""><span>기획전</span></a></li>
+                    <li>
+                        <a href="">
+                            <span>전체</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>럭셔리</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>신발</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>아우터</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>상의</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>하의</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>가방</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>지갑</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>시계</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>패션잡화</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <script src="/views/common/rain.js" type="text/javascript"></script>
 
 </body>
 </html>

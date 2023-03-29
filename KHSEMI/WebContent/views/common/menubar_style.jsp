@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
++<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>구해줘패션_메뉴바_비올때</title>
+<title>구해줘패션_메뉴바</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <!-- jQuery library -->
@@ -14,9 +14,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<link href="/views/common/menu.css" rel="stylesheet" type="text/css">
-
-
 <style>
     .header{
         position:fixed;
@@ -24,7 +21,7 @@
         left: 0;
         right: 0;
         z-index: 1000;
-        background: linear-gradient(75deg, #ecebed, #9198e5);
+        background-color: white;
 	    border-bottom: solid 1px rgb(231, 231, 231);
     }
 
@@ -120,7 +117,6 @@
     #notice{
         width: 16px;
     }
-	
 </style>
 </head>
 <body>
@@ -147,25 +143,68 @@
                 <div class="gnb_area">
                     <nav class="gnb">
                         <ul class="gnb_list">
-                            <li><a href="">DRESS ROOM</a></li>
+                            <li><a href="">HOME</a></li>
+                            <li><a href="">STYLE</a></li>
+                            <li><a href="">SHOP</a></li>
                             <li><a href="">MY</a></li>
-                            <li><button class="btnFind" type="submit" name="btnFind"><img id="search" src="${pageContext.request.contextPath}/resources/search_icon.png"></button></li>
                         </ul>
                     </nav>
                 </div>
             </div>
             <div class="tab_area">
                 <ul>
-                	<li><a href=""><span>HOME</span></a></li>
-                    <li><a href=""><span>STYLE</span></a></li>
-                    <li><a href=""><span>SHOP</span></a></li>
-                    <li><a href=""><span>기획전</span></a></li>
+                    <li>
+                        <a href="">
+                            <span>팔로잉</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>발견</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>스니커즈</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>럭셔리</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>의류</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>가방</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>액세서리</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>컬렉터블</span>
+                        </a>
+                    </li>
                 </ul>
+                <form  name="frm_search" role="search" method="get" class="search-form" >
+                   <input type="search" class="search-field" placeholder="상품명" value="${param.findStr }" name="findStr" />
+                   <button class="submit" type="submit" name="btnFind" class="search-submit"><img id="search" src="resources\search_icon.png"></button>
+                   <input type="hidden" name="nowPage" value="${(empty param.nowPage)? 1: param.nowPage}" size="10">
+                   <input type="hidden" name="serial" size="10" >
+                   <input type="hidden" name="search" value="select">
+                </form>
             </div>
         </div>
     </div>
 
-    <script src="/views/common/rain.js" type="text/javascript"></script>
 
 </body>
 </html>
