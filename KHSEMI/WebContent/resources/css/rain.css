@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+/* 비내리는 효과 css */
+
+i {
+        position: fixed;
+        height: 30px;
+        background: linear-gradient(transparent, #fff);
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        animation: raining 5s linear Infinite;
+        z-index: 1001;
+}
+
+@keyframes raining {
+        0% {
+            transform: translateY(-140px);
+        }
+        100% {
+            transform: translateY(calc(-30px));
+        }
+}

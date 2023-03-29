@@ -157,7 +157,7 @@
 </head>
 <body>
 
-  <%@ include file="views/common/menubar_sun.jsp" %>
+  <%@ include file="views/common/menubar_snow.jsp" %>
 
   <!-- Swiper -->
   <div class="swiper first">

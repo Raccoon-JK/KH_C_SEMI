@@ -14,27 +14,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<link href="${pageContext.request.contextPath}/views/common/menu.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/resources/css/menu.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/resources/css/rain.css" rel="stylesheet" type="text/css">
 <style>
-    i {
-        position: fixed;
-        height: 30px;
-        background: linear-gradient(transparent, #fff);
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-        animation: raining 5s linear Infinite;
-        z-index: 1001;
-    }
-
-    @keyframes raining {
-        0% {
-            transform: translateY(-140px);
-        }
-        100% {
-            transform: translateY(calc(-30px));
-        }
-    }
-
     .header{
         position:fixed;
         top: 0;

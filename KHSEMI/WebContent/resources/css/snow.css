@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+/* 눈내리는 효과 css */
+
+i {
+        position: fixed;
+        height: 3px;
+        background: linear-gradient(transparent, #fff);
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        animation: snowing 5s linear Infinite;
+        z-index: 1001;
+    }
+
+@keyframes snowing {
+        0% {
+            transform: translateY(-140px);
+        }
+        100% {
+            transform: translateY(-10px);
+        }
+}
